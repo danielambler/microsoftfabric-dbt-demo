@@ -1,4 +1,7 @@
 # Microsoft Fabric and DBT Core
+
+![alt text](./fabric_dbt_logo.png)
+
 - [Microsoft Fabric and DBT Core](#microsoft-fabric-and-dbt-core)
   - [About The Project](#about-the-project)
   - [TLDR;](#tldr)
