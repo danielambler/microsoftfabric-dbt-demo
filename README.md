@@ -1,16 +1,17 @@
 # Microsoft Fabric and DBT Core
-
 - [Microsoft Fabric and DBT Core](#microsoft-fabric-and-dbt-core)
   - [About The Project](#about-the-project)
+  - [TLDR;](#tldr)
   - [About Microsoft Fabric](#about-microsoft-fabric)
   - [About DBT](#about-dbt)
   - [Repository structure](#repository-structure)
   - [Getting Started](#getting-started)
 
-
 ## About The Project
-
 This repository hosts a dbt project that can be used as a demo with Microsoft Fabric.
+
+## TLDR; 
+The howto to use this project in fabric is [here](/doc/howto-fabric-dbt-core.md)
 
 ## About Microsoft Fabric
 [Microsoft Fabric](https://www.microsoft.com/en-us/microsoft-fabric) is an AI-powered data analytics platform that unifies data engineering, data science, and business intelligence into a single, integrated experience. It empowers organizations to manage, analyze, and visualize data seamlessly across teams using tools like Power BI, Synapse, and Data Factory.
@@ -28,9 +29,6 @@ This repository hosts a dbt project that can be used as a demo with Microsoft Fa
 - Data dictionaries for the sample NYC Taxi datasets are saved in the [data_dictionaries](https://github.com/microsoft/microsoftfabric-dbt-demo/tree/main/data_dictionaries) folder.
 
 ## Getting Started
-
-<!-- Add instructions specific to your project here. -->
-
 1. Prerequisites
 
 * Currently assumes running on a Linux based Github codespace.
@@ -38,20 +36,17 @@ This repository hosts a dbt project that can be used as a demo with Microsoft Fa
 * Knowledge of running projects with dbt.
 * You will need an application regsitration/service principal to run the dbt project.
 
-2. Installation instruction:
-
+2. Installation instruction
     - Install [Git](https://git-scm.com/downloads) or [GitHub Desktop](https://desktop.github.com/)
 
 3. Create a local copy
-
    Download [latest release](https://docs.github.com/en/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags#viewing-releases), if none available [clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) the repository
 
  ```
-    git clone https://github.com/mottmac-global/microsoftfabric-dbt-demo.git
+    git clone https://github.com/danielambler/microsoftfabric-dbt-demo.git
  ```
 
  4. Environment Setup
-
 ```
 # For pip
 > python -m venv .\venv
@@ -63,10 +58,7 @@ This repository hosts a dbt project that can be used as a demo with Microsoft Fa
 > conda activate
 ```
 
-* Add the following variables to your environment using your favourite method.  These are used in the **profiles.yml** file.  A helper script is available 
-```
-$ source ./setup/setup_environment_variables_1.sh
-```
+* Add the following variables to your environment using your favourite method.  These are used in the **profiles.yml** file.  
 
 |Name|Notes|
 |--|--|
@@ -76,14 +68,11 @@ $ source ./setup/setup_environment_variables_1.sh
 |FAB_SPN_CLIENT_SECRET|A valid secret for your application.|
 
 5. Install Microsoft ODBC 18 Driver
-
 ```
  $ . setup/install_Microsoft_ODBC_18.sh 
 ```
 
 6. Fabric And Azure Setup
-
-
 * Register your application in Azure.
 * Create a Workspace.
 * Grant your service principal **Contributor** access on your workspace.
@@ -91,7 +80,6 @@ $ source ./setup/setup_environment_variables_1.sh
 * Copy and run the Notebook /fabric/notebooks/**nb_populate_warehouse** to download some demo data into your warehouse.
 
 7. Validating Setup
-
 * Navigate to the dbt project root
 
 ```
@@ -101,10 +89,8 @@ $ cd src/msfabric_dbt_demo
 * To validate your setup, run **dbt debug**
 
 8. Run The Project
-
 * Run **dbt build**.
 
 9. Generate Documentation
-
 * Run **dbt docs generate** to rebuild the documentation.
 * Run **dbt docs serve** to view the documentation.
