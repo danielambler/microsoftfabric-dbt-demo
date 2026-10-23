@@ -1,0 +1,15 @@
+msfabric_dbt_demo:
+  target: fabric-dev
+  outputs:    
+    fabric-dev:
+      type: fabric
+      driver: 'ODBC Driver 18 for SQL Server'
+      host: "{{ env_var('FAB_WH_SQL_SERVER')}}"
+      port: 1433
+      database: wh_gold
+      schema: dbo
+      authentication: ServicePrincipal
+      tenant_id: "{{ env_var('FAB_TENANT_ID')}}"
+      client_id: "{{ env_var('FAB_SPN_CLIENT_ID')}}"
+      client_secret: "{{ env_var('FAB_SPN_CLIENT_SECRET')}}"
+      threads: 4
